@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Arrise Security Core — Executive Pitch</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g:#10b981;--b:#4facfe;--r:#ef4444;--gold:#f59e0b;
+  --bg:#06080a;--panel:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.08);
+  --muted:rgba(255,255,255,0.45);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:#fff;overflow-x:hidden}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 3rem;
+  background:rgba(6,8,10,0.9);backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+}
+.logo{display:flex;align-items:center;gap:0.6rem;font-size:1rem;font-weight:700;letter-spacing:-0.3px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--g);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.25}}
+.nav-links{display:flex;gap:0.25rem}
+.nl{padding:0.3rem 0.85rem;border-radius:20px;font-size:0.78rem;color:var(--muted);text-decoration:none;transition:.2s}
+.nl:hover{color:#fff;background:rgba(255,255,255,0.07)}
+
+/* SLIDE BASE */
+section{
+  min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:9rem 5rem 7rem;position:relative;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  overflow:hidden;
+}
+.orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(120px);opacity:.1}
+
+/* TYPOGRAPHY */
+.eyebrow{
+  font-size:.68rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;
+  color:var(--muted);margin-bottom:1.25rem;text-align:center;
+}
+.slide-title{
+  font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:800;
+  line-height:1.1;letter-spacing:-1.5px;text-align:center;
+  margin-bottom:1rem;max-width:850px;
+}
+.slide-body{
+  font-size:1.05rem;color:var(--muted);text-align:center;
+  line-height:1.75;max-width:640px;margin-bottom:3rem;
+}
+
+/* HERO */
+.hero-title{
+  font-size:clamp(3.5rem,8vw,6.5rem);font-weight:900;
+  letter-spacing:-3px;line-height:1;text-align:center;
+  max-width:1000px;margin-bottom:2rem;
+}
+.hero-sub{
+  font-size:1.2rem;color:var(--muted);text-align:center;
+  max-width:600px;line-height:1.75;
+}
+.badge{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  padding:.45rem 1.25rem;border-radius:100px;
+  font-size:.82rem;font-weight:600;margin-bottom:2rem;
+  background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);
+  color:var(--g);
+}
+
+/* CARDS */
+.grid{display:grid;gap:1.25rem;width:100%;max-width:1100px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+
+.card{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:18px;padding:1.75rem 2rem;
+  transition:transform .25s,border-color .25s;
+}
+.card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.14)}
+.card-g{background:rgba(16,185,129,.05);border-color:rgba(16,185,129,.2)}
+.card-r{background:rgba(239,68,68,.05);border-color:rgba(239,68,68,.2)}
+.card-b{background:rgba(79,172,254,.05);border-color:rgba(79,172,254,.2)}
+.card-gold{background:rgba(245,158,11,.05);border-color:rgba(245,158,11,.2)}
+
+.card-icon{font-size:2rem;margin-bottom:1rem}
+.card h3{font-size:1rem;font-weight:700;margin-bottom:.5rem;line-height:1.3}
+.card p{font-size:.88rem;color:var(--muted);line-height:1.65}
+
+/* STAT */
+.stat{text-align:center;padding:2rem 1.5rem}
+.stat-n{font-size:clamp(2.5rem,5vw,4rem);font-weight:900;letter-spacing:-2px;line-height:1}
+.stat-l{font-size:.82rem;color:var(--muted);margin-top:.5rem;line-height:1.4}
+
+/* PROBLEM → SOLUTION COMPARE */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;width:100%;max-width:960px}
+.vs-col{border-radius:18px;padding:2.25rem}
+.vs-col.bad{background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.18)}
+.vs-col.good{background:rgba(16,185,129,.05);border:1px solid rgba(16,185,129,.18)}
+.vs-col h3{font-size:.78rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:1.5rem;opacity:.6}
+.vs-row{display:flex;gap:.75rem;margin-bottom:1rem;align-items:flex-start}
+.vs-dot{width:22px;height:22px;border-radius:50%;flex-shrink:0;margin-top:1px;font-size:.72rem;display:flex;align-items:center;justify-content:center;font-weight:700}
+.bad .vs-dot{background:rgba(239,68,68,.15);color:var(--r)}
+.good .vs-dot{background:rgba(16,185,129,.15);color:var(--g)}
+.vs-row p{font-size:.9rem;color:var(--muted);line-height:1.6}
+.vs-row strong{color:#fff}
+
+/* PROCESS FLOW */
+.flow{display:flex;align-items:stretch;width:100%;max-width:1100px}
+.flow-step{
+  flex:1;text-align:center;padding:2rem 1.5rem;
+  background:var(--panel);border:1px solid var(--border);
+}
+.flow-step:first-child{border-radius:18px 0 0 18px}
+.flow-step:last-child{border-radius:0 18px 18px 0}
+.flow-arr{width:1px;background:var(--border);flex-shrink:0;position:relative;display:flex;align-items:center;justify-content:center}
+.flow-arr::after{content:'→';position:absolute;background:var(--bg);padding:2px 4px;color:var(--muted);font-size:1.2rem}
+.flow-n{
+  width:34px;height:34px;border-radius:50%;
+  background:rgba(79,172,254,.12);border:1px solid rgba(79,172,254,.3);
+  color:var(--b);font-weight:800;font-size:.85rem;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto .9rem;
+}
+.flow-step h4{font-size:.95rem;font-weight:700;margin-bottom:.4rem}
+.flow-step p{font-size:.78rem;color:var(--muted);line-height:1.5}
+
+/* ROI TABLE */
+.roi-wrap{width:100%;max-width:860px;border-radius:16px;overflow:hidden;border:1px solid var(--border)}
+.roi-r{display:grid;grid-template-columns:1.2fr 2fr 2fr;border-bottom:1px solid var(--border)}
+.roi-r:last-child{border-bottom:none}
+.roi-r.head .roi-c{background:rgba(255,255,255,.025);font-size:.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.roi-c{padding:1rem 1.4rem;font-size:.95rem}
+.roi-r.hl{background:rgba(16,185,129,.07)}
+.roi-r.hl .roi-c{color:#fff}
+.roi-r.hl .eur{color:var(--g);font-weight:800;font-size:1.1rem}
+.period{color:var(--muted);font-weight:500}
+.eur{color:var(--g);font-weight:700}
+
+/* BIG NUM */
+.bign{
+  font-size:clamp(5rem,13vw,10rem);font-weight:900;
+  letter-spacing:-4px;line-height:1;
+  background:linear-gradient(135deg,var(--g),var(--b));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+/* SCREEN MOCKUPS */
+.mockup{background:#0d1117;border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.mockup-bar{padding:.75rem 1rem;background:rgba(255,255,255,.03);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.5rem}
+.mockup-dot{width:8px;height:8px;border-radius:50%}
+.mockup-body{padding:1.5rem}
+
+/* DISCLAIMER */
+.disc{
+  font-size:.78rem;color:var(--muted);
+  padding:1.25rem 1.5rem;background:var(--panel);
+  border:1px solid var(--border);border-radius:14px;
+  line-height:1.7;max-width:860px;width:100%;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  section{padding:7rem 1.5rem 4rem}
+  .g2,.g3,.g4,.vs,.flow{grid-template-columns:1fr;flex-direction:column}
+  .flow-step{border-radius:14px !important}
+  .flow-arr{display:none}
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  .roi-r{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo"><div class="dot"></div>Arrise Security Core</div>
+  <div class="nav-links">
+    <a class="nl" href="#problem">Problem</a>
+    <a class="nl" href="#solution">Solution</a>
+    <a class="nl" href="#compliance">Compliance</a>
+    <a class="nl" href="#how">How It Works</a>
+    <a class="nl" href="#savings">Savings</a>
+    <a class="nl" href="#revenue">Revenue</a>
+    <a class="nl" href="#next">Next Steps</a>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 1 — HERO
+═══════════════════════════════════════════ -->
+<section id="hero">
+  <div class="orb" style="width:700px;height:700px;background:var(--g);top:-300px;right:-250px"></div>
+  <div class="orb" style="width:500px;height:500px;background:var(--b);bottom:-200px;left:-200px"></div>
+
+  <div class="badge"><div class="dot"></div>Confidential · Executive Briefing</div>
+
+  <h1 class="hero-title">What if every dealer<br>was verified before<br>they sat down?</h1>
+
+  <p class="hero-sub">
+    Arrise Security Core is an AI-powered identity layer that plugs silently into your existing camera infrastructure — verifying every dealer at every table, in real time, with zero friction.
+  </p>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 2 — THE PROBLEM
+═══════════════════════════════════════════ -->
+<section id="problem">
+  <div class="eyebrow">The Problem</div>
+  <h2 class="slide-title">Today, your security system<br>relies on a piece of plastic.</h2>
+  <p class="slide-body">
+    Every 30 minutes, every dealer must physically scan a badge to log their rotation. It sounds like a minor step. But when you look at what it actually costs — in time, in risk, and in missed revenue — the picture changes completely.
+  </p>
+
+  <div class="vs" style="margin-bottom:2.5rem">
+    <div class="vs-col bad">
+      <h3 style="color:var(--r)">❌ What's Happening Now</h3>
+      <div class="vs-row"><div class="vs-dot">✕</div><p>Dealer walks to the table, <strong>searches for their badge</strong>, aligns it to the reader, waits for a beep. Minimum 2 seconds. If the card isn't found — it can take minutes.</p></div>
+      <div class="vs-row"><div class="vs-dot">✕</div><p><strong>Anyone can scan anyone else's card.</strong> The system doesn't check if the right face is in the seat — it only checks if the right card was tapped.</p></div>
+      <div class="vs-row"><div class="vs-dot">✕</div><p>If an <strong>unauthorized person sits at a table</strong> mid-session, there is no real-time alert. Security only finds out after the fact.</p></div>
+      <div class="vs-row"><div class="vs-dot">✕</div><p>The <strong>game stops</strong> every time there's a scanning issue. Supervisors intervene. Players wait. Revenue pauses.</p></div>
+    </div>
+    <div class="vs-col good">
+      <h3 style="color:var(--g)">✅ What Should Be Happening</h3>
+      <div class="vs-row"><div class="vs-dot">✓</div><p>Dealer walks to the table and <strong>sits down</strong>. The camera sees their face. Identity confirmed in <strong>100 milliseconds</strong>. No action required from anyone.</p></div>
+      <div class="vs-row"><div class="vs-dot">✓</div><p>The system verifies the <strong>actual person</strong> in the seat — not a card. Biometric identity cannot be borrowed, forgotten, or faked.</p></div>
+      <div class="vs-row"><div class="vs-dot">✓</div><p>The moment an <strong>unrecognized or unauthorized person</strong> appears at a table, the Pit Boss receives an instant alert — before a single hand is dealt.</p></div>
+      <div class="vs-row"><div class="vs-dot">✓</div><p>The game <strong>never stops</strong>. Rotations are seamless. No scanning, no waiting, no supervisor needed.</p></div>
+    </div>
+  </div>
+
+  <div class="grid g3" style="max-width:800px">
+    <div class="card card-r stat">
+      <div class="stat-n" style="color:var(--r)">45</div>
+      <div class="stat-l">Turkish live tables running around the clock</div>
+    </div>
+    <div class="card card-r stat">
+      <div class="stat-n" style="color:var(--r)">2,160</div>
+      <div class="stat-l">Badge scans happening every single day</div>
+    </div>
+    <div class="card card-r stat">
+      <div class="stat-n" style="color:var(--r)">18</div>
+      <div class="stat-l">Full working days lost to scan friction every year</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 3 — THE SOLUTION
+═══════════════════════════════════════════ -->
+<section id="solution">
+  <div class="orb" style="width:600px;height:600px;background:var(--b);top:-200px;right:-200px"></div>
+
+  <div class="eyebrow">The Solution</div>
+  <h2 class="slide-title">A silent AI layer on top of<br>your existing cameras.</h2>
+  <p class="slide-body">
+    No new hardware. No disruption to live operations. Arrise Security Core attaches to your existing Sony CCTV feeds as pure software — invisible to everyone except the people it protects.
+  </p>
+
+  <div class="grid g3">
+    <div class="card card-b">
+      <div class="card-icon">🎥</div>
+      <h3>Works With What You Already Have</h3>
+      <p>Your existing Sony IP cameras become the sensor layer. We don't touch your recording setup. The system reads from the live stream in the background — completely non-intrusive.</p>
+    </div>
+    <div class="card card-g">
+      <div class="card-icon">🧠</div>
+      <h3>Military-Grade Face Recognition</h3>
+      <p>Powered by InsightFace AI (the same engine used in border control systems). Each dealer's face is encoded into a unique 512-point biometric signature that cannot be replicated or spoofed.</p>
+    </div>
+    <div class="card card-b">
+      <div class="card-icon">⚡</div>
+      <h3>Verified in 100 Milliseconds</h3>
+      <p>From the moment the camera sees the dealer's face, to confirmed identity — under 100ms. The dealer is authenticated before they've finished adjusting their seat.</p>
+    </div>
+    <div class="card card-gold">
+      <div class="card-icon">🏷️</div>
+      <h3>Nickname-Based Display</h3>
+      <p>Dealers see only their game name on screen — never their real identity. "Welcome, Ace" appears quietly in the corner when they sit down, and stays there until the next dealer arrives.</p>
+    </div>
+    <div class="card card-r">
+      <div class="card-icon">🚨</div>
+      <h3>Real-Time Security Alerts</h3>
+      <p>Wrong dealer in the seat? Two people in frame? Unknown face? The Pit Boss gets an instant alert on their security console — before the game starts, not after it ends.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔌</div>
+      <h3>Zero Risk Deployment</h3>
+      <p>Fully containerized. Deployable in hours. If the system is turned off tomorrow, the casino continues normally. No dependency, no lock-in, no operational risk.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 4 — COMPLIANCE RISK
+═══════════════════════════════════════════ -->
+<section id="compliance">
+  <div class="orb" style="width:600px;height:600px;background:var(--r);top:-200px;left:-200px"></div>
+  <div class="orb" style="width:400px;height:400px;background:var(--gold);bottom:-150px;right:-150px"></div>
+
+  <div class="eyebrow">The Hidden Risk</div>
+  <h2 class="slide-title">If a dealer cheats,<br>it's not just the player who loses.</h2>
+  <p class="slide-body">
+    Live casino providers are regulated by some of the strictest gaming authorities in the world — MGA, UKGC, Gibraltar. A single verified dealer fraud incident can trigger consequences that dwarf any short-term gain from operational savings.
+  </p>
+
+  <!-- Fraud types -->
+  <div class="grid g4" style="max-width:1060px;margin-bottom:3rem">
+    <div class="card card-r">
+      <div class="card-icon">🃏</div>
+      <h3>Card Mucking</h3>
+      <p>A dealer secretly swaps or palms cards to give accomplice players an advantage. Almost impossible to catch without frame-by-frame verification of who is at the table and when.</p>
+    </div>
+    <div class="card card-r">
+      <div class="card-icon">📡</div>
+      <h3>Collusion Signaling</h3>
+      <p>A dealer signals hole card values to a third party watching the live stream — using hand positions, chip placements, or timing patterns. Detection requires knowing exactly which dealer is on shift.</p>
+    </div>
+    <div class="card card-r">
+      <div class="card-icon">🔄</div>
+      <h3>Unauthorized Substitution</h3>
+      <p>A trained accomplice sits in a dealer's seat mid-session — after the rotation scan has already passed. The badge system has no way to catch this. A face system catches it in 100ms.</p>
+    </div>
+    <div class="card card-r">
+      <div class="card-icon">🎰</div>
+      <h3>False Shuffle / Deal</h3>
+      <p>A dealer uses sleight-of-hand to control card order in favour of a specific player. Only consistent identity tracking across sessions can expose patterns that reveal the fraud.</p>
+    </div>
+  </div>
+
+  <!-- Sanctions -->
+  <h3 style="font-size:1.1rem;font-weight:700;text-align:center;margin-bottom:1.75rem;color:rgba(255,255,255,.7)">What regulators can do when fraud is proven at a licensed provider</h3>
+  <div class="grid g3" style="max-width:960px;margin-bottom:3rem">
+    <div class="card card-gold" style="text-align:center;padding:2rem">
+      <div style="font-size:2rem;margin-bottom:.75rem">⚖️</div>
+      <h3 style="font-size:1rem;margin-bottom:.5rem">Regulatory Fines</h3>
+      <p>MGA fines range from <strong style="color:#fff">€23,000 to €375,000</strong> per violation. Repeat incidents or systemic failures carry multipliers. UKGC fines have reached <strong style="color:#fff">tens of millions of GBP</strong> for operators who failed to prevent fraud.</p>
+    </div>
+    <div class="card card-r" style="text-align:center;padding:2rem">
+      <div style="font-size:2rem;margin-bottom:.75rem">🚫</div>
+      <h3 style="font-size:1rem;margin-bottom:.5rem">License Suspension or Revocation</h3>
+      <p>A suspended license means <strong style="color:#fff">zero live operations</strong> until investigation is complete. For a 45-table live studio running 24/7, even a 48-hour suspension represents <strong style="color:#fff">a six-figure revenue loss</strong>.</p>
+    </div>
+    <div class="card" style="text-align:center;padding:2rem">
+      <div style="font-size:2rem;margin-bottom:.75rem">📋</div>
+      <h3 style="font-size:1rem;margin-bottom:.5rem">Operator Contract Terminations</h3>
+      <p>Platform operators (Bet365, William Hill, PokerStars) hold providers <strong style="color:#fff">fully liable</strong> for game integrity failures. A single fraud incident can trigger contract termination clauses worth <strong style="color:#fff">millions in annual B2B revenue</strong>.</p>
+    </div>
+  </div>
+
+  <!-- The fix -->
+  <div style="max-width:860px;width:100%;padding:2.5rem;background:rgba(16,185,129,.05);border:1px solid rgba(16,185,129,.2);border-radius:18px;text-align:center">
+    <p style="font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--g);margin-bottom:1rem">How Arrise Security Core changes this</p>
+    <p style="font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,.75);max-width:680px;margin:0 auto">
+      Every dealer rotation is <strong style="color:#fff">biometrically timestamped</strong>. The system knows exactly who was at each table, at what time, for how long — down to the second. In the event of a dispute, investigation, or audit, this creates an <strong style="color:#fff">irrefutable chain of identity evidence</strong> that protects the provider, satisfies regulators, and demonstrates proactive compliance.
+    </p>
+    <div class="grid g3" style="max-width:680px;margin:2rem auto 0;text-align:left">
+      <div style="display:flex;gap:.6rem;align-items:flex-start">
+        <span style="color:var(--g);margin-top:2px;flex-shrink:0">✓</span>
+        <p style="font-size:.88rem;color:var(--muted)">Audit-ready identity log for every table, every rotation</p>
+      </div>
+      <div style="display:flex;gap:.6rem;align-items:flex-start">
+        <span style="color:var(--g);margin-top:2px;flex-shrink:0">✓</span>
+        <p style="font-size:.88rem;color:var(--muted)">Unauthorized substitution caught in real time — not post-incident</p>
+      </div>
+      <div style="display:flex;gap:.6rem;align-items:flex-start">
+        <span style="color:var(--g);margin-top:2px;flex-shrink:0">✓</span>
+        <p style="font-size:.88rem;color:var(--muted)">Demonstrates proactive compliance posture to MGA and UKGC</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 5 — HOW IT WORKS
+═══════════════════════════════════════════ -->
+<section id="how">
+  <div class="eyebrow">How It Works</div>
+  <h2 class="slide-title">Three steps. Zero friction.</h2>
+  <p class="slide-body">The system runs across three simple screens — built for the people who actually use them, not for engineers.</p>
+
+  <div class="flow" style="margin-bottom:3.5rem">
+    <div class="flow-step">
+      <div class="flow-n">1</div>
+      <h4>HR Registers the Dealer</h4>
+      <p>HR uploads a photo, employee ID, and the dealer's game nickname. The AI encodes the face and stores it permanently. Done once — works forever.</p>
+    </div>
+    <div class="flow-arr"></div>
+    <div class="flow-step">
+      <div class="flow-n">2</div>
+      <h4>Supervisor Sets the Shift</h4>
+      <p>Before each rotation, the supervisor assigns which dealer ID goes to which table — either manually or via a barcode scanner in rapid-scan mode.</p>
+    </div>
+    <div class="flow-arr"></div>
+    <div class="flow-step">
+      <div class="flow-n">3</div>
+      <h4>Dealer Sits Down</h4>
+      <p>The camera captures their face. The AI matches it to the scheduled dealer in under 100ms. Their nickname appears in the corner of their screen. The game begins.</p>
+    </div>
+    <div class="flow-arr"></div>
+    <div class="flow-step">
+      <div class="flow-n">4</div>
+      <h4>AI Watches All 45 Tables</h4>
+      <p>The security console monitors every table simultaneously. Any anomaly — wrong person, unknown face, multiple people — triggers an instant alert.</p>
+    </div>
+  </div>
+
+  <!-- Screen mockups -->
+  <div class="grid g2" style="max-width:940px">
+    <div>
+      <p style="font-size:.75rem;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:1rem">Security Console</p>
+      <div class="mockup">
+        <div class="mockup-bar">
+          <div class="mockup-dot" style="background:#ef4444"></div>
+          <div class="mockup-dot" style="background:#f59e0b"></div>
+          <div class="mockup-dot" style="background:#10b981"></div>
+          <span style="font-size:.75rem;color:var(--muted);margin-left:.5rem">Security Command Center · All Tables</span>
+        </div>
+        <div class="mockup-body">
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin-bottom:1rem">
+            <div style="padding:.5rem .75rem;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);border-radius:8px;font-size:.78rem;color:var(--g)">Table 1 · Ace ✓</div>
+            <div style="padding:.5rem .75rem;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);border-radius:8px;font-size:.78rem;color:var(--g)">Table 2 · Shadow ✓</div>
+            <div style="padding:.5rem .75rem;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:8px;font-size:.78rem;color:var(--r)">Table 3 · ⚠ BREACH</div>
+            <div style="padding:.5rem .75rem;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);border-radius:8px;font-size:.78rem;color:var(--g)">Table 4 · King ✓</div>
+            <div style="padding:.5rem .75rem;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);border-radius:8px;font-size:.78rem;color:var(--g)">Table 5 · Viper ✓</div>
+            <div style="padding:.5rem .75rem;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:8px;font-size:.78rem;color:var(--muted)">Table 6 · Idle</div>
+          </div>
+          <p style="font-size:.8rem;color:var(--muted)">Real-time status across all tables. Instant alerts. Accessible from any browser.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p style="font-size:.75rem;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:1rem">Dealer Screen</p>
+      <div class="mockup" style="height:calc(100% - 2rem)">
+        <div class="mockup-bar">
+          <div class="mockup-dot" style="background:#ef4444"></div>
+          <div class="mockup-dot" style="background:#f59e0b"></div>
+          <div class="mockup-dot" style="background:#10b981"></div>
+          <span style="font-size:.75rem;color:var(--muted);margin-left:.5rem">Table 3 · Studio A · <span style="color:var(--g)">● LIVE</span></span>
+          <span style="margin-left:auto;display:flex;align-items:center;gap:6px;padding:.25rem .85rem;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.3);border-radius:20px">
+            <span style="color:var(--g);font-size:.8rem">✓</span>
+            <span style="color:var(--g);font-weight:700;font-size:.82rem">Ace</span>
+          </span>
+        </div>
+        <div class="mockup-body" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:180px;text-align:center">
+          <p style="font-size:.7rem;color:var(--muted);letter-spacing:4px;text-transform:uppercase;margin-bottom:.5rem">LIVE TABLE</p>
+          <h2 style="font-size:2rem;font-weight:300;color:#fff;letter-spacing:.5px">Game Active</h2>
+          <p style="font-size:.8rem;color:var(--muted);margin-top:1rem">Dealer sees only their nickname and game status.<br>Zero distraction. Maximum focus.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 5 — TIME SAVINGS
+═══════════════════════════════════════════ -->
+<section id="savings">
+  <div class="orb" style="width:600px;height:600px;background:var(--b);bottom:-200px;right:-200px"></div>
+
+  <div class="eyebrow">Operational Savings</div>
+  <h2 class="slide-title">Every rotation currently costs<br>2 seconds. Every single one.</h2>
+  <p class="slide-body">
+    That's 2 seconds of a dealer stopping, searching, tapping, waiting. Multiply that across 45 tables, 48 rotations per day, 365 days a year — and you get a number that is hard to ignore.
+  </p>
+
+  <div class="grid g4" style="margin-bottom:3rem;max-width:960px">
+    <div class="card stat">
+      <div class="stat-n" style="color:var(--b)">1.2h</div>
+      <div class="stat-l">Recovered every single day across all 45 tables</div>
+    </div>
+    <div class="card stat">
+      <div class="stat-n" style="color:var(--b)">8.4h</div>
+      <div class="stat-l">Recovered every week — a full working shift</div>
+    </div>
+    <div class="card stat">
+      <div class="stat-n" style="color:var(--b)">36h</div>
+      <div class="stat-l">Recovered every month — 1.5 full working days</div>
+    </div>
+    <div class="card card-g stat">
+      <div class="stat-n" style="color:var(--g)">18</div>
+      <div class="stat-l">Full working days recovered every year</div>
+    </div>
+  </div>
+
+  <div class="vs" style="max-width:860px">
+    <div class="vs-col bad">
+      <h3 style="color:var(--r)">What 18 lost days looks like</h3>
+      <div class="vs-row"><div class="vs-dot">—</div><p>18 days where dealers are standing at tables doing nothing except waiting for a scanner to beep.</p></div>
+      <div class="vs-row"><div class="vs-dot">—</div><p>18 days of micro-delays that players feel — even if they can't name them.</p></div>
+      <div class="vs-row"><div class="vs-dot">—</div><p>18 days of rounds <strong>that never happened</strong> — because the game paused for a badge.</p></div>
+    </div>
+    <div class="vs-col good">
+      <h3 style="color:var(--g)">What 18 recovered days means</h3>
+      <div class="vs-row"><div class="vs-dot">✓</div><p>18 additional days of <strong>uninterrupted gameplay</strong> — more rounds per hour, per day, per year.</p></div>
+      <div class="vs-row"><div class="vs-dot">✓</div><p>A <strong>smoother, faster-paced table</strong> experience that players notice and prefer.</p></div>
+      <div class="vs-row"><div class="vs-dot">✓</div><p>Every one of those recovered rounds generates <strong>real incremental revenue</strong> — calculated on the next slide.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 6 — REVENUE IMPACT
+═══════════════════════════════════════════ -->
+<section id="revenue">
+  <div class="orb" style="width:700px;height:700px;background:var(--g);top:-250px;left:-250px"></div>
+
+  <div class="eyebrow">Revenue Impact</div>
+  <h2 class="slide-title">Those 18 recovered days<br>translate directly into money.</h2>
+  <p class="slide-body">
+    Every recovered second is a round that gets played. Every round played generates house revenue. Here's what that looks like, using the most conservative possible assumptions.
+  </p>
+
+  <div class="grid g3" style="max-width:900px;margin-bottom:2.5rem">
+    <div class="card" style="text-align:center;padding:1.5rem">
+      <p style="font-size:.75rem;color:var(--muted);margin-bottom:.5rem">Avg. player loss / round</p>
+      <p style="font-size:1.6rem;font-weight:800">100 TL</p>
+    </div>
+    <div class="card" style="text-align:center;padding:1.5rem">
+      <p style="font-size:.75rem;color:var(--muted);margin-bottom:.5rem">Players per table</p>
+      <p style="font-size:1.6rem;font-weight:800">2 players</p>
+    </div>
+    <div class="card" style="text-align:center;padding:1.5rem">
+      <p style="font-size:.75rem;color:var(--muted);margin-bottom:.5rem">House commission</p>
+      <p style="font-size:1.6rem;font-weight:800">3%</p>
+    </div>
+  </div>
+
+  <p style="font-size:.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:1rem">Result: €6 house revenue per round · 0.7 seconds per round · 45 Turkish Tables · 1€ = 54.91 TL</p>
+
+  <div class="roi-wrap" style="margin-bottom:3.5rem">
+    <div class="roi-r head">
+      <div class="roi-c">Period</div>
+      <div class="roi-c">Extra Rounds Played</div>
+      <div class="roi-c">Incremental Revenue</div>
+    </div>
+    <div class="roi-r">
+      <div class="roi-c period">Daily</div>
+      <div class="roi-c">~6,171 rounds</div>
+      <div class="roi-c eur">€674</div>
+    </div>
+    <div class="roi-r">
+      <div class="roi-c period">Weekly</div>
+      <div class="roi-c">~43,200 rounds</div>
+      <div class="roi-c eur">€4,720</div>
+    </div>
+    <div class="roi-r">
+      <div class="roi-c period">Monthly</div>
+      <div class="roi-c">~185,142 rounds</div>
+      <div class="roi-c eur">€20,230</div>
+    </div>
+    <div class="roi-r hl">
+      <div class="roi-c" style="color:var(--g);font-weight:800;font-size:1.05rem">Annually</div>
+      <div class="roi-c" style="font-size:1rem;font-weight:700">~2,252,571 rounds</div>
+      <div class="roi-c eur" style="font-size:1.25rem">€246,121</div>
+    </div>
+  </div>
+
+  <div class="bign">€246K</div>
+  <p style="font-size:1rem;color:var(--muted);margin-top:1.25rem;text-align:center;max-width:540px;line-height:1.7">
+    Per year. From 45 Turkish tables. At the most conservative assumptions possible.<br>
+    <strong style="color:#fff">Zero new tables. Zero new dealers. Zero new hardware.</strong><br>
+    <span style="color:var(--b);font-size:.9rem">If rolled out to all 360 tables → <strong style="color:var(--b)">~€1.97M / year</strong></span>
+  </p>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 7 — NEXT STEPS
+═══════════════════════════════════════════ -->
+<section id="next">
+  <div class="orb" style="width:700px;height:700px;background:var(--g);top:-300px;right:-300px"></div>
+  <div class="orb" style="width:500px;height:500px;background:var(--b);bottom:-200px;left:-200px"></div>
+
+  <div class="eyebrow">Next Steps</div>
+  <h2 class="slide-title">The system is built and running.<br>All we need is a floor to test it on.</h2>
+  <p class="slide-body">
+    Arrise Security Core is fully operational. It runs live today on a test environment. A real-world pilot can be deployed on a single studio floor in under 48 hours — using your existing infrastructure, with no impact on live operations.
+  </p>
+
+  <div class="grid g3" style="max-width:900px;margin-bottom:3rem">
+    <div class="card card-g" style="text-align:center;padding:2.25rem">
+      <div style="font-size:2.5rem;margin-bottom:1rem">⏱️</div>
+      <h3 style="font-size:1.1rem;margin-bottom:.5rem">48 Hours</h3>
+      <p>From approval to a live, running pilot on your floor. No construction. No downtime.</p>
+    </div>
+    <div class="card card-b" style="text-align:center;padding:2.25rem">
+      <div style="font-size:2.5rem;margin-bottom:1rem">🎯</div>
+      <h3 style="font-size:1.1rem;margin-bottom:.5rem">1 Studio Floor</h3>
+      <p>Start small. Measure the impact. Scale when you're confident.</p>
+    </div>
+    <div class="card" style="text-align:center;padding:2.25rem">
+      <div style="font-size:2.5rem;margin-bottom:1rem">🔌</div>
+      <h3 style="font-size:1.1rem;margin-bottom:.5rem">Your Cameras</h3>
+      <p>We use your existing Sony IP cameras. Nothing new to buy, install, or maintain.</p>
+    </div>
+  </div>
+
+  <div class="disc">
+    <strong style="color:rgba(255,255,255,.7)">Assumptions used in all calculations (Turkish Tables Only):</strong>
+    100 TL average player loss per round · 2 players per table · 3% house commission · 0.7 seconds per round · 2 seconds saved per rotation · 48 rotations per day per table · 45 Turkish tables · 24/7 operation · Exchange rate: 1€ = 54.91 TL.
+    All figures represent conservative minimums. Actual results will be higher as player stakes, session lengths, and table count grow.
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="padding:1.75rem 3rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)">
+  <div class="logo"><div class="dot"></div>Arrise Security Core</div>
+  <p style="font-size:.78rem;color:var(--muted)">Confidential · Internal Use Only</p>
+</footer>
+
+</body>
+</html>
