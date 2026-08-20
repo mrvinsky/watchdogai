@@ -286,14 +286,14 @@ section{
       <p>From the moment the camera sees the dealer's face, to confirmed identity — under 100ms. The dealer is authenticated before they've finished adjusting their seat.</p>
     </div>
     <div class="card card-gold">
-      <div class="card-icon">🏷️</div>
-      <h3>Nickname-Based Display</h3>
-      <p>Dealers see only their game name on screen — never their real identity. "Welcome, Ace" appears quietly in the corner when they sit down, and stays there until the next dealer arrives.</p>
+      <div class="card-icon">👻</div>
+      <h3>100% Headless & Invisible</h3>
+      <p>Zero dealer-facing screens or popups. The system operates purely as background AI intelligence, preserving 100% of existing table routines and dealer focus.</p>
     </div>
     <div class="card card-r">
-      <div class="card-icon">🚨</div>
-      <h3>Real-Time Security Alerts</h3>
-      <p>Wrong dealer in the seat? Two people in frame? Unknown face? The Pit Boss gets an instant alert on their security console — before the game starts, not after it ends.</p>
+      <div class="card-icon">🛡️</div>
+      <h3>Hierarchical Anti-False-Alarm</h3>
+      <p>Unlike basic camera systems, Watchdog AI recognizes shift rotation overlaps (±2 min), studio shufflers, and roving supervisors without triggering false alarms.</p>
     </div>
     <div class="card">
       <div class="card-icon">🔌</div>
@@ -389,80 +389,87 @@ section{
      SLIDE 5 — HOW IT WORKS
 ═══════════════════════════════════════════ -->
 <section id="how">
-  <div class="eyebrow">How It Works</div>
-  <h2 class="slide-title">Three steps. Zero friction.</h2>
-  <p class="slide-body">The system runs across three simple screens — built for the people who actually use them, not for engineers.</p>
+  <div class="eyebrow">Architecture & Logic</div>
+  <h2 class="slide-title">100% Headless.<br>4-Tier Anti-False-Positive Intelligence.</h2>
+  <p class="slide-body">
+    Watchdog AI operates invisibly in the background. It connects directly to your broadcast RTSP streams, ingests WFM shift schedules, and eliminates false alarms through a context-aware hierarchical verification filter.
+  </p>
 
-  <div class="flow" style="margin-bottom:3.5rem">
+  <div class="flow" style="margin-bottom:3rem">
     <div class="flow-step">
       <div class="flow-n">1</div>
-      <h4>HR Onboarding</h4>
-      <p>HR uploads a photo, employee ID, and game nickname. InsightFace extracts a 512-D vector stored permanently in Redis. Done once — works forever.</p>
+      <h4>WFM & Digital Twin</h4>
+      <p>System automatically ingests shift spreadsheets, mapping 100+ tables, scheduled dealers, upcoming shift rotations, and studio shufflers.</p>
     </div>
     <div class="flow-arr"></div>
     <div class="flow-step">
       <div class="flow-n">2</div>
-      <h4>WFM Shift Plan</h4>
-      <p>Supervisor sets table shift plan via rapid-scan barcode or panel. System maps scheduled dealer IDs to live Sony RTSP camera streams.</p>
+      <h4>Headless RTSP Capture</h4>
+      <p>Silent edge daemons pull keyframes directly from existing Sony broadcast cameras. Zero hardware on tables, zero dealer interaction.</p>
     </div>
     <div class="flow-arr"></div>
     <div class="flow-step">
       <div class="flow-n">3</div>
-      <h4>Zero-Friction Dealer</h4>
-      <p>Camera recognizes dealer in 100ms. Corner badge displays game nickname ("✓ Ace"). Screen shows clean real-time clock — zero popups, zero stress.</p>
+      <h4>4-Tier Whitelist Filter</h4>
+      <p>Evaluates every face in frame: Scheduled Dealer → Rotation Overlap (±2 min) → Studio Shuffler → Floor Supervisor. Zero false alarms.</p>
     </div>
     <div class="flow-arr"></div>
     <div class="flow-step">
       <div class="flow-n">4</div>
-      <h4>30-Min Shift & Audit</h4>
-      <p>AI monitors all 100 tables 24/7. Auto-detects intruders, multi-face violations, and triggers alerts if a shift exceeds 30 minutes without rotation.</p>
+      <h4>Live CCTV Command Matrix</h4>
+      <p>Pitbosses and security officers monitor all 100 tables in real-time. Immediate telemetry alerts upon unauthorized intrusion or shift fatigue.</p>
     </div>
   </div>
 
-  <!-- Screen mockups -->
+  <!-- Screen mockups / Architecture cards -->
   <div class="grid g2" style="max-width:940px">
     <div>
-      <p style="font-size:.75rem;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:1rem">Security Command Center (CCTV + Overtime)</p>
+      <p style="font-size:.75rem;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:1rem">CCTV Command Matrix (100 Tables Live)</p>
       <div class="mockup">
         <div class="mockup-bar">
           <div class="mockup-dot" style="background:#ef4444"></div>
           <div class="mockup-dot" style="background:#f59e0b"></div>
           <div class="mockup-dot" style="background:#10b981"></div>
-          <span style="font-size:.75rem;color:var(--muted);margin-left:.5rem">CCTV Command Center · 45 Tables</span>
-          <span style="margin-left:auto;font-family:monospace;font-size:.75rem;color:var(--b)">21:15:00</span>
+          <span style="font-size:.75rem;color:var(--muted);margin-left:.5rem">CCTV Security Matrix · 100 Tables</span>
+          <span style="margin-left:auto;font-family:monospace;font-size:.75rem;color:var(--b)">22:30:00</span>
         </div>
         <div class="mockup-body">
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin-bottom:1rem">
-            <div style="padding:.5rem .75rem;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);border-radius:8px;font-size:.78rem;color:var(--g)">Table 1 · Ace (12 dk) ✓</div>
-            <div style="padding:.5rem .75rem;background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.3);border-radius:8px;font-size:.78rem;color:var(--r);font-weight:700">Table 2 · ⏰ 32 dk AŞIM</div>
-            <div style="padding:.5rem .75rem;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:8px;font-size:.78rem;color:var(--r)">Table 3 · ⚠ YETKİSİZ</div>
-            <div style="padding:.5rem .75rem;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);border-radius:8px;font-size:.78rem;color:var(--g)">Table 4 · King (24 dk) ✓</div>
-            <div style="padding:.5rem .75rem;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);border-radius:8px;font-size:.78rem;color:var(--g)">Table 5 · Viper (8 dk) ✓</div>
-            <div style="padding:.5rem .75rem;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:8px;font-size:.78rem;color:var(--muted)">Table 6 · Boş / Idle</div>
+            <div style="padding:.5rem .75rem;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);border-radius:8px;font-size:.78rem;color:var(--g)">Table 8.1 · Besir (+Supervisor) ✓</div>
+            <div style="padding:.5rem .75rem;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);border-radius:8px;font-size:.78rem;color:var(--g)">Table 8.2 · Idil (Rotasyon ±2m) ✓</div>
+            <div style="padding:.5rem .75rem;background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.3);border-radius:8px;font-size:.78rem;color:var(--r);font-weight:700">Table 8.3 · 🚨 YETKİSİZ YÜZ</div>
+            <div style="padding:.5rem .75rem;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);border-radius:8px;font-size:.78rem;color:var(--g)">Table 8.4 · Elena (+Shuffler) ✓</div>
+            <div style="padding:.5rem .75rem;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);border-radius:8px;font-size:.78rem;color:var(--gold)">Table 8.5 · ⏰ 32 dk AŞIM</div>
+            <div style="padding:.5rem .75rem;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:8px;font-size:.78rem;color:var(--muted)">Table 8.6 · Boş / Mola</div>
           </div>
-          <p style="font-size:.8rem;color:var(--muted)">Otonom yüz tanıma, 30 dakikalık vardiya aşım tespiti ve anlık denetim snapshot logları.</p>
+          <p style="font-size:.8rem;color:var(--muted)">WebSocket tabanlı gerçek zamanlı denetim, çoklu yüz rol ayrıştırması ve anlık ihlal bildirimi.</p>
         </div>
       </div>
     </div>
     <div>
-      <p style="font-size:.75rem;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:1rem">Dealer Screen (Zero Distraction)</p>
-      <div class="mockup" style="height:calc(100% - 2rem)">
-        <div class="mockup-bar">
-          <div class="mockup-dot" style="background:#ef4444"></div>
-          <div class="mockup-dot" style="background:#f59e0b"></div>
-          <div class="mockup-dot" style="background:#10b981"></div>
-          <span style="font-size:.75rem;color:var(--muted);margin-left:.5rem">Table 1 · Studio A · <span style="color:var(--g)">● LIVE</span></span>
-          <span style="margin-left:auto;display:flex;align-items:center;gap:6px;padding:.2rem .75rem;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.3);border-radius:20px">
-            <span style="color:var(--g);font-size:.75rem">✓</span>
-            <span style="color:var(--g);font-weight:700;font-size:.78rem">Ace</span>
-          </span>
-          <span style="font-family:monospace;font-size:.75rem;color:rgba(255,255,255,.6);margin-left:.5rem">21:15:00</span>
+      <p style="font-size:.75rem;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:1rem">Context-Aware Whitelist Engine</p>
+      <div class="card card-g" style="padding:1.5rem;height:calc(100% - 2rem);display:flex;flex-direction:column;justify-content:space-between">
+        <div>
+          <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:1rem">
+            <span style="font-size:1.2rem">🛡️</span>
+            <h4 style="font-size:1.05rem;color:#fff">4 Kademeli Doğrulama Hiyerarşisi</h4>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.6rem;font-size:.82rem;line-height:1.5">
+            <div style="padding:.5rem .75rem;background:rgba(255,255,255,.05);border-radius:6px">
+              <strong style="color:var(--g)">1. Asıl Krupiye:</strong> Masanın aktif vardiya sorumlusu.
+            </div>
+            <div style="padding:.5rem .75rem;background:rgba(255,255,255,.05);border-radius:6px">
+              <strong style="color:var(--b)">2. Rotasyon Toleransı (±2 dk):</strong> Nöbet devralacak sıradaki krupiyenin arkada beklemesi serbest.
+            </div>
+            <div style="padding:.5rem .75rem;background:rgba(255,255,255,.05);border-radius:6px">
+              <strong style="color:var(--gold)">3. Stüdyo Shuffler'ı:</strong> Kart karıştırıcılar odaya girdiğinde alarm çalmaz.
+            </div>
+            <div style="padding:.5rem .75rem;background:rgba(255,255,255,.05);border-radius:6px">
+              <strong style="color:#a855f7">4. Floor Supervisor:</strong> Masayı denetleyen şefler sessizce onaylanır.
+            </div>
+          </div>
         </div>
-        <div class="mockup-body" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:180px;text-align:center">
-          <p style="font-size:.7rem;color:var(--muted);letter-spacing:4px;text-transform:uppercase;margin-bottom:.5rem">CANLI MASA</p>
-          <h2 style="font-size:2rem;font-weight:300;color:#fff;letter-spacing:.5px">Oyun Aktif</h2>
-          <p style="font-size:.8rem;color:var(--muted);margin-top:1rem">Krupiye sadece takma adını ve saati görür.<br>Sıfır dikkat dağıtıcı unsur, maksimum odak.</p>
-        </div>
+        <p style="font-size:.76rem;color:var(--muted);margin-top:1rem">Yalnızca 4 kontrolden de geçemeyen yetkisiz yabancılar alarm tetikler.</p>
       </div>
     </div>
   </div>
