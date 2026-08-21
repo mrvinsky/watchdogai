@@ -1,4 +1,4 @@
-# WATCHDOG AI
+# ARGUSCAS AI
 ## ENTERPRISE TECHNICAL ARCHITECTURE & SOFTWARE SPECIFICATION
 **Type of Work:** Computer Software / AI Biometric Authentication System  
 **Field of Application:** Workforce Management (WFM) and Live Casino Security  
@@ -6,7 +6,7 @@
 ---
 
 ### 1. ABSTRACT & PURPOSE OF THE SOFTWARE
-Watchdog AI is an enterprise-grade, **passive biometric verification system** designed for high-density live broadcasting environments (e.g., Live Casinos). Operating entirely as a "Headless" (invisible) software layer, it eliminates the need for physical hardware authentication (RFID, PIN pads, or dealer-facing screens). The software bridges raw Workforce Management (WFM) scheduling data with live network camera feeds, autonomously verifying dealer identities across hundreds of tables and alerting security personnel via a centralized command dashboard.
+ArgusCas AI is an enterprise-grade, **passive biometric verification system** designed for high-density live broadcasting environments (e.g., Live Casinos). Operating entirely as a "Headless" (invisible) software layer, it eliminates the need for physical hardware authentication (RFID, PIN pads, or dealer-facing screens). The software bridges raw Workforce Management (WFM) scheduling data with live network camera feeds, autonomously verifying dealer identities across hundreds of tables and alerting security personnel via a centralized command dashboard.
 
 ### 2. CORE ARCHITECTURE & MODULES
 The software relies on a dynamically scalable microservices architecture (Python, FastAPI, React, Redis, DeepFace/InsightFace) divided into three proprietary engines:
@@ -28,7 +28,7 @@ The software relies on a dynamically scalable microservices architecture (Python
 - **Algorithmic Logic:** A React-based, WebSocket-driven real-time grid. Instead of single-table monitoring, the UI renders a massive matrix of all active tables. Tables maintain a "SAFE" (Green) status passively. Upon biometric mismatch, the specific node instantly triggers a "DANGER/UNAUTHORIZED" (Red) alert, allowing instantaneous intervention.
 
 ### 3. INNOVATION & ORIGINALITY (IP CLAIM)
-The core intellectual property of Watchdog AI lies in its **Zero-Hardware, Headless Enforcement Loop**. Traditional systems demand active input (scanning a badge) which disrupts operations. Watchdog AI is highly original in its method of taking two completely disparate, unstructured data sources—static HR Excel schedules and raw network CCTV streams—and autonomously bridging them via an AI cross-referencing loop. The ability to dynamically scale this verification across hundreds of nodes without introducing a single piece of physical hardware or dealer-facing screen constitutes the unique trade secret and architectural novelty of this software.
+The core intellectual property of ArgusCas AI lies in its **Zero-Hardware, Headless Enforcement Loop**. Traditional systems demand active input (scanning a badge) which disrupts operations. ArgusCas AI is highly original in its method of taking two completely disparate, unstructured data sources—static HR Excel schedules and raw network CCTV streams—and autonomously bridging them via an AI cross-referencing loop. The ability to dynamically scale this verification across hundreds of nodes without introducing a single piece of physical hardware or dealer-facing screen constitutes the unique trade secret and architectural novelty of this software.
 
 ### 4. DATA FLOW DIAGRAM (TEXTUAL)
 1. `WFM_SPREADSHEET` -> `DYNAMIC_PARSER` -> `REDIS_DIGITAL_TWIN`

@@ -1,12 +1,12 @@
-# 🐺 Watchdog AI
+# 🐺 ArgusCas AI
 ### *Autonomous Biometric Security & WFM Integrity Layer for Live Casino Operations*
 
 ---
 
 ## 📌 Executive Overview
-**Watchdog AI** is an enterprise-grade, zero-hardware security and workforce verification platform built specifically for high-density live broadcast studios and casino gaming floors. 
+**ArgusCas AI** is an enterprise-grade, zero-hardware security and workforce verification platform built specifically for high-density live broadcast studios and casino gaming floors. 
 
-By autonomously bridging human resources shift schedules (WFM) with live broadcast CCTV camera streams, Watchdog AI continuously authenticates personnel at every table in real-time. The platform operates completely **headless and invisible** to dealers—eliminating physical badge-scanning bottlenecks while protecting operators from unauthorized substitutions, collusion, and compliance breaches.
+By autonomously bridging human resources shift schedules (WFM) with live broadcast CCTV camera streams, ArgusCas AI continuously authenticates personnel at every table in real-time. The platform operates completely **headless and invisible** to dealers—eliminating physical badge-scanning bottlenecks while protecting operators from unauthorized substitutions, collusion, and compliance breaches.
 
 ---
 
@@ -22,7 +22,7 @@ By autonomously bridging human resources shift schedules (WFM) with live broadca
 ## 🛡️ Key Architectural Pillars
 
 ### 1. Hierarchical Anti-False-Positive Engine
-Unlike naive computer vision systems that trigger false alarms whenever multiple individuals enter the camera frame, Watchdog AI incorporates a proprietary 4-tier contextual validation filter:
+Unlike naive computer vision systems that trigger false alarms whenever multiple individuals enter the camera frame, ArgusCas AI incorporates a proprietary 4-tier contextual validation filter:
 1. **Primary Dealer Check:** Validates against the active shift schedule for that specific table.
 2. **Shift Rotation Grace Period:** Automatically recognizes the incoming dealer during shift handover windows (configurable $\pm 2\text{ minutes}$) without triggering multi-face alarms.
 3. **Studio Shuffler Whitelist:** Contextually validates roving card-shuffling personnel assigned to the active studio.

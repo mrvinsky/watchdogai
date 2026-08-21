@@ -1,4 +1,4 @@
-# WATCHDOG AI
+# ARGUSCAS AI
 ## TEHNIČKA ARHITEKTURA I SPECIFIKACIJA SOFTVERA
 **Vrsta dela:** Računarski program (Softver) / AI Sistem za biometrijsku autentifikaciju  
 **Oblast primene:** Upravljanje radnom snagom (WFM) i bezbednost u uživo kazinima (Live Casino)  
@@ -6,7 +6,7 @@
 ---
 
 ### 1. SAŽETAK I SVRHA SOFTVERA
-Watchdog AI je softverski sistem poslovne klase za **pasivnu biometrijsku verifikaciju i eliminaciju lažnih alarma**, dizajniran za okruženja sa visokom gustinom prenosa uživo (npr. Live Casino). Funkcionišući u potpunosti kao "Headless" (nevidljivi) softverski sloj, eliminiše potrebu za hardverom za fizičku autentifikaciju (RFID, PIN tastature ili ekrani okrenuti krupijeima). Softver premošćava sirove podatke o rasporedu radne snage (WFM) sa mrežnim CCTV kamerama uživo, autonomno verifikujući identitet krupijea na stotinama stolova i omogućavajući neometan rad bez prekidanja toka igre.
+ArgusCas AI je softverski sistem poslovne klase za **pasivnu biometrijsku verifikaciju i eliminaciju lažnih alarma**, dizajniran za okruženja sa visokom gustinom prenosa uživo (npr. Live Casino). Funkcionišući u potpunosti kao "Headless" (nevidljivi) softverski sloj, eliminiše potrebu za hardverom za fizičku autentifikaciju (RFID, PIN tastature ili ekrani okrenuti krupijeima). Softver premošćava sirove podatke o rasporedu radne snage (WFM) sa mrežnim CCTV kamerama uživo, autonomno verifikujući identitet krupijea na stotinama stolova i omogućavajući neometan rad bez prekidanja toka igre.
 
 ### 2. OSNOVNA ARHITEKTURA I MODULI
 Softver se oslanja na dinamički skalabilnu mikroservisnu arhitekturu (Python, FastAPI, React, Redis, DeepFace/InsightFace) podeljenu u četiri vlasnička mehanizma:
@@ -39,7 +39,7 @@ Softver se oslanja na dinamički skalabilnu mikroservisnu arhitekturu (Python, F
 - **Algoritamska logika:** React matrica sa WebSocket ažuriranjem u realnom vremenu. Prikazuje sve aktivne stolove sa statusom "BEZBEDNO" (Zeleno) ili "OPASNOST/NEOVLAŠĆENO" (Crveno), uz detaljan prikaz uloga prisutnih lica (npr. *Krupije + Supervizor*).
 
 ### 3. INOVACIJA I ORIGINALNOST (PRAVO INTELEKTUALNE SVOJINE)
-Osnovna intelektualna svojina Watchdog AI leži u njegovoj **"Zero-Hardware, Hierarchical Multi-Face Enforcement"** logici. Za razliku od rigidnih sistema koji prijavljuju grešku čim se pojavi drugo lice u kadru, Watchdog AI autonomno razlikuje legitimne operativne procese (rotacija krupijea, kontrola supervizora, rad mešača karata) od stvarnih bezbednosnih proboja putem kontekstualne vremenske i prostorne matrice.
+Osnovna intelektualna svojina ArgusCas AI leži u njegovoj **"Zero-Hardware, Hierarchical Multi-Face Enforcement"** logici. Za razliku od rigidnih sistema koji prijavljuju grešku čim se pojavi drugo lice u kadru, ArgusCas AI autonomno razlikuje legitimne operativne procese (rotacija krupijea, kontrola supervizora, rad mešača karata) od stvarnih bezbednosnih proboja putem kontekstualne vremenske i prostorne matrice.
 
 ### 4. DIJAGRAM TOKA PODATAKA (TEKSTUALNI)
 1. `WFM_TABELA` -> `DINAMIČKI_PARSER` -> `REDIS (Krupije + Naredni Krupije + Mešači + Supervizori)`
